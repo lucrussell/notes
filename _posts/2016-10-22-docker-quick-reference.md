@@ -5,6 +5,7 @@ author: Luc
 post_date: 2016-10-22 02:30:26
 post_excerpt: ""
 tags: docker
+category: quick reference
 layout: post
 permalink: >
   http://lucrussell.com/docker-quick-reference/
