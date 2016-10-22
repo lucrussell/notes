@@ -1,3 +1,8 @@
+---
+post_title: 'Docker Quick Reference'
+layout: post_type_probably_post
+published: true_or_false
+---
 Docker Quick Reference
 ======================
 [TOC]: #
