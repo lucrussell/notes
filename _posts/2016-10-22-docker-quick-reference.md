@@ -130,7 +130,7 @@ Get the last 20 lines of logs:
 
 ## Other References
 
-Cheat sheet: https://github.com/wsargent/docker-cheat-sheet
+Cheat sheet: [https://github.com/wsargent/docker-cheat-sheet](https://github.com/wsargent/docker-cheat-sheet)
 
 [wpghs target='view' type='link' text='View and edit this post on GitHub']
 
