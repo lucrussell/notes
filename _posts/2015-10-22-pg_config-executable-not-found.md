@@ -7,7 +7,7 @@ post_excerpt: ""
 layout: post
 permalink: >
   http://lucrussell.com/pg_config-executable-not-found/
-published: true
+published: false
 tags: [python, postgres]
 categories: [errors and problems]
 ---
