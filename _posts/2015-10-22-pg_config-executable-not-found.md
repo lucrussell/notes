@@ -9,8 +9,7 @@ permalink: >
   http://lucrussell.com/pg_config-executable-not-found/
 published: true
 tags: [python, postgres]
-categories:
-  - errors and problems
+categories: [errors and problems]
 ---
 
 psycopg complains about missing pg_config executable.
