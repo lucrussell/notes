@@ -1,6 +1,12 @@
 ---
-post_title: 'Docker Quick Reference'
+ID: 611
+post_title: Docker Quick Reference
+author: Luc
+post_date: 2016-10-22 02:18:45
+post_excerpt: ""
 layout: post
+permalink: >
+  http://lucrussell.com/docker-quick-reference/
 published: true
 ---
 Docker Quick Reference
@@ -124,7 +130,7 @@ E.g. if you have an application that's writing to both streams and
 you're not sure where logs are going: 
 
 ```
-docker logs 4017b8a68f98 2>&1 | grep
+docker logs 4017b8a68f98 2&gt;&amp;1 | grep
 ```
 
 ## Keep a Container Running 
