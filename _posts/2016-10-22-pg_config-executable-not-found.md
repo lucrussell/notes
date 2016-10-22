@@ -12,7 +12,6 @@ tags: [python, postgres]
 categories:
   - errors and problems
 ---
-# pg_config Executable Not Found
 
 psycopg complains about missing pg_config executable.
 
