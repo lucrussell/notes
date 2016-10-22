@@ -25,3 +25,4 @@ Then install psycopg2 on command line:
     source venv/bin/activate
     (venv)$ pip install psycopg2
     ...Successfully installed psycopg2-2.6.1
+
