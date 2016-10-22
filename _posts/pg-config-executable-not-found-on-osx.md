@@ -19,7 +19,7 @@ first:
  
      brew install postgresql 
 
-Then install via psycopg2 on command line:
+Then install psycopg2 on command line:
 
 ```
 source venv/bin/activate
