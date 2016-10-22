@@ -1,7 +1,7 @@
 ---
 post_title: 'Docker Quick Reference'
-layout: post_type_probably_post
-published: true_or_false
+layout: post
+published: true
 ---
 Docker Quick Reference
 ======================
@@ -160,3 +160,4 @@ docker logs --tail 20 fc805ce579d3
 ## Other References
 Cheat sheet: https://github.com/wsargent/docker-cheat-sheet
 
+[wpghs target='view' type='link' text='View and edit this post on GitHub']
