@@ -52,6 +52,9 @@ So, you need to do this:
 
 `sudo ifconfig lo0 alias 10.200.10.1/24`
 
+Then any containers which need to access the service can use the
+`10.200.10.1` address.
+
 ### Accessing The Xyve Virtual Machine
 
 You might need to do this after restarting/upgrading docker. To get into the xyve vm use `screen`:
