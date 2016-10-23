@@ -6,4 +6,4 @@ layout: post
 permalink: http://lucrussell.com/test3/
 published: true
 ---
-update 2
+update 3
