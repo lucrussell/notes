@@ -14,8 +14,25 @@ tags: [ ]
 categories:
   - quick reference
 ---
+[TOC]: # 
+# Table of Contents
+- [Commit](#commit)
+- [History of a File, Limited to 5 Entries](#history-of-a-file-limited-to-5-entries)
+- [Diff Two Revisions](#diff-two-revisions)
+- [Search Log Messages for a Jira](#search-log-messages-for-a-jira)
+- [Log All Commit Messages for a Branch](#log-all-commit-messages-for-a-branch)
+- [All Java Files Related to a Set of Jira Ids](#all-java-files-related-to-a-set-of-jira-ids)
+- [Show Every Commit Made by the Specified User](#show-every-commit-made-by-the-specified-user)
+- [Get Details for a Specific Revision](#get-details-for-a-specific-revision)
+- [Show Latest Changes](#show-latest-changes)
+- [Get a List of Local Changes](#get-a-list-of-local-changes)
+- [Get a Change Related to a Jira](#get-a-change-related-to-a-jira)
+- [Add to svn Ignore](#add-to-svn-ignore)
+- [Move a File or Directory](#move-a-file-or-directory)
+- [Last Changed Revision](#last-changed-revision)
+- [Diff](#diff)
+- [Diff Two Tags](#diff-two-tags)
 
-## Checkout
 
 Checkout to a new directory:
 
