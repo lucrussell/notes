@@ -2,7 +2,7 @@
 ID: 641
 post_title: SVN Quick Reference
 author: Luc
-post_date: 2016-10-26 00:47:56
+post_date: 2013-10-26 00:47:56
 post_excerpt: ""
 layout: post
 permalink: >
@@ -12,7 +12,7 @@ tags_input:
   - 'a:4:{i:0;s:21:"wpghs_pre_import_args";i:1;s:4:"tags";i:2;s:5:"hello";i:3;s:5:"world";}'
 tags: [ ]
 categories:
-  - Uncategorized
+  - quick reference
 ---
 # SVN Quick Reference
 
