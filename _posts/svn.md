@@ -1,3 +1,10 @@
+---
+post_title: SVN Quick Reference
+author: Luc
+post_date: 2013-06-19 08:12:57
+layout: post
+published: true
+---
 SVN Quick Reference
 ===================
 
