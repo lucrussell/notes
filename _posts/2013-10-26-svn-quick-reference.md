@@ -14,7 +14,6 @@ tags: [ ]
 categories:
   - quick reference
 ---
-# SVN Quick Reference
 
 ## Checkout
 
