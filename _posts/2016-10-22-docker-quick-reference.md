@@ -4,12 +4,18 @@ post_title: Docker Quick Reference
 author: Luc
 post_date: 2016-10-22 02:30:26
 post_excerpt: ""
-tags: docker
-categories: quick reference
 layout: post
 permalink: >
   http://lucrussell.com/docker-quick-reference/
 published: true
+tags:
+  - docker
+category:
+  - quick reference
+categories:
+  - quick reference
+tags_input:
+  - 'a:4:{i:0;s:21:"wpghs_pre_import_args";i:1;s:4:"tags";i:2;s:5:"hello";i:3;s:5:"world";}'
 ---
 # Docker Quick Reference
 
@@ -52,8 +58,7 @@ So, you need to do this:
 
 `sudo ifconfig lo0 alias 10.200.10.1/24`
 
-Then any containers which need to access the service can use the
-`10.200.10.1` address.
+Then any containers which need to access the service can use the `10.200.10.1` address.
 
 ### Accessing The Xyve Virtual Machine
 
@@ -134,7 +139,7 @@ Get the last 20 lines of logs:
 
 ## Other References
 
-Cheat sheet: [https://github.com/wsargent/docker-cheat-sheet](https://github.com/wsargent/docker-cheat-sheet)
+Cheat sheet: <https://github.com/wsargent/docker-cheat-sheet>
 
 [wpghs target='view' type='link' text='View and edit this post on GitHub']
 
