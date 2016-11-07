@@ -10,7 +10,9 @@ permalink: >
 published: true
 tags_input:
   - 'a:4:{i:0;s:21:"wpghs_pre_import_args";i:1;s:4:"tags";i:2;s:5:"hello";i:3;s:5:"world";}'
-tags: [ ]
+tags:
+  - Errors and problems
+  - kafka
 categories:
   - errors and problems
 ---
