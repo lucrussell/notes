@@ -70,7 +70,11 @@ In summary:
         sudo make install
     
 
-Then: git clone https://github.com/Parsely/pykafka.git cd pykafka python setup.py develop
+Then:
+
+    git clone https://github.com/Parsely/pykafka.git
+    cd pykafka
+    python setup.py develop
 
 The last part, calling `setup.py develop` to put pykafka in develop mode, is necessary for creating the link between the two.
 
