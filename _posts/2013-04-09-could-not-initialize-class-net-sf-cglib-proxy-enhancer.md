@@ -11,13 +11,13 @@ permalink: >
   http://lucrussell.com/could-not-initialize-class-net-sf-cglib-proxy-enhancer/
 published: true
 ---
+
+## Problem
+Could not initialize class net.sf.cglib.proxy.Enhancer
 Nested exception is java.lang.NoClassDefFoundError: Could not initialize class net.sf.cglib.proxy.Enhancer.
-<ul>
 
-	<li> Increase Spring logging to debug in log4j.xml</li>
+## Solution
 
-	<li> The issue starts with java.lang.NoClassDefFoundError: org/objectweb/asm/Type</li>
-
-	<li> This is maybe due to a class conflict: Type has moved in newer version of Spring. Remove old cglib from classpath and ensure the asm.jar in use is the latest</li>
-
-</ul>
+* Increase Spring logging to debug in log4j.xml
+* The issue starts with `java.lang.NoClassDefFoundError: org/objectweb/asm/Type`
+* This could be due to a class conflict: `Type` has moved in newer version of Spring. Remove old cglib from classpath and ensure the asm.jar in use is the latest
