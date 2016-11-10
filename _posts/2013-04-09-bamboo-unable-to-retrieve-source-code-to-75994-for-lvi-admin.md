@@ -9,4 +9,8 @@ permalink: >
   http://lucrussell.com/bamboo-unable-to-retrieve-source-code-to-75994-for-lvi-admin/
 published: true
 ---
-Configure the plan to perform a clean checkout, see <a href="http://confluence.atlassian.com/display/BAMKB/SVN+update+fails+with+NullpointerException" title="Link to Atlassian">this Bamboo issue</a> (not exactly the same, but a similar issue)
+## Problem
+Bamboo error message: unable to retrieve source code to &#8216;75994&#8217; for &#8216;LVI-ADMIN&#8217;
+ 
+## Solution
+Configure the plan to perform a clean checkout, see [this Bamboo issue](http://confluence.atlassian.com/display/BAMKB/SVN+update+fails+with+NullpointerException). It's not exactly the same, but a similar issue.
