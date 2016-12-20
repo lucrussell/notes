@@ -5,7 +5,7 @@ post_date:
 layout: post
 ---
 ## Problem 
-Attempting to Retrieve JSON Opens up the response as if it was a file download
+Attempting to retrieve JSON opens up the response as if it was a file download.
 ## Solution 
 See [this link](http://stackoverflow.com/questions/4516702/json-object-returned-as-file-download-spring-mvc/) for more information.
 
