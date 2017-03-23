@@ -44,8 +44,6 @@ Also see [here][18].
     docker-compose build --no-cache
     docker-compose up --force-recreate
 
-test
-
 ## Working With Docker for Mac
 
 ### Aliasing 0.0.0.0 to work around dynamic IPs
