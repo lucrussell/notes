@@ -42,9 +42,10 @@ tags_input:
 
 Also see [here][18].
 
-    docker-compose rm -f
-    docker-compose pull
-    docker-compose up --build -d
+    docker-compose rm -v -f
+    docker-compose build --no-cache
+    docker-compose up --force-recreate
+
 
 ## Working With Docker for Mac
 
