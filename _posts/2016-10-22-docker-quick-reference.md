@@ -19,7 +19,6 @@ tags_input:
 ---
 
 # Table of Contents
-
 *   [Docker Compose Force Rebuild][1]
 *   [Working With Docker for Mac][2] 
     *   [Aliasing 0.0.0.0 to work around dynamic IPs][3]
@@ -39,13 +38,13 @@ tags_input:
 *   [Other References][17]
 
 ## Docker Compose Force Rebuild
-
 Also see [here][18].
 
     docker-compose rm -v -f
     docker-compose build --no-cache
     docker-compose up --force-recreate
 
+test
 
 ## Working With Docker for Mac
 
