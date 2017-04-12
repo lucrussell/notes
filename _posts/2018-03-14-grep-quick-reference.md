@@ -20,13 +20,13 @@ A quick reference for some handy grep statements.
 The idea here is to be able to highlight a line in your IDE and execute it directly in a shell session. This saves some time trying to remember how to construct a particular command, and can be useful if you keep your development notes open in your IDE. For example, you could quickly search for a grep pattern you remember using before, and execute it with `<shift><ctrl><b>`.
 
 To set this up in IntelliJ family IDEs:
-1. Create a runner script, e.g. `command_runner.sh` which can execute supplied commands (see example below)
-2. Configure an External Tool in Settings:
-    * Give it a name like "Execute with Bash"
-    * Set the Program to your `command_runner.sh`
-    * Set the Arguments to `$SelectedText$`
-    * Set the Working Directory to `$ProjectFileDir$`
-3. Optionally assign a keyboard shortcut
+*   Create a runner script, e.g. `command_runner.sh` which can execute supplied commands (see example below)
+*   Configure an External Tool in Settings:
+    *   Give it a name like "Execute with Bash"
+    *   Set the Program to your `command_runner.sh`
+    *   Set the Arguments to `$SelectedText$`
+    *   Set the Working Directory to `$ProjectFileDir$`
+*   Optionally assign a keyboard shortcut
 
 This example simplified command runner script will pass the `$SelectedText$` to bash:
 
