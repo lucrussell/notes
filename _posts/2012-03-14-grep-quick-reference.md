@@ -36,8 +36,8 @@ This example simplified command runner script will pass the `$SelectedText$` to 
 | Print file names only, containing the pattern | grep -ir -l 'word' * |
 | Grep only in filenames with a particular extension | grep -ir --include=*.md 'word' |
 | Exclude files with a particular extension | grep -ir --exclude=*.md 'word' |
-| Recursive grep, searching for patterns in `patterns.txt` | find . -name *.md -exec grep -Hn -f patterns.txt {} ; |
-| Recursive grep for `word` in all `.md` files | find . -name *.md -exec grep -Hn 'word' {} ; |
+| Recursive grep, searching for patterns in `patterns.txt` | find . -name *.md -exec &#124; grep -Hn -f patterns.txt {} ; |
+| Recursive grep for `word` in all `.md` files | find . -name *.md &#124; -exec grep -Hn 'word' {} ; |
 | Count total occurences of `word`, including cases when a line contains multiple occurences | grep -oir 'word' * &#124; wc -l |
 | Grep multiple strings with the `--perl-regexp` option | grep -r --perl-regexp 'hello&#124;goodbye' *|
 | Count total occurences of `word`, including cases when a line contains multiple occurences | grep -oir 'word' * &#124; wc -l |
