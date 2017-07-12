@@ -204,4 +204,4 @@ Without this, you may see an error like `method personal_listAccounts does not e
 
 - Go to [http://remix.ethereum.org](http://remix.ethereum.org)
 - On the 'Run' tab in top right, change the Environment to Web3 Provider
-- Enter 'http://localhost:8545' as the Web3 Provider Endpoint
+- Enter [http://localhost:8545](http://localhost:8545) as the Web3 Provider Endpoint
