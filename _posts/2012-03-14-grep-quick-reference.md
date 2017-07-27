@@ -43,4 +43,6 @@ This example simplified command runner script will pass the `$SelectedText$` to 
 | Count total occurences of `word`, including cases when a line contains multiple occurences | grep -oir 'word' * &#124; wc -l |
 | Grep multiple strings with the `--perl-regexp` option | grep -r --perl-regexp 'hello&#124;goodbye' *|
 
-(note `|` is escaped as `&#124;` in the source of the table above)
+(note `|` is escaped as `&#124;` in the source of the table above).
+
+[markdown](https://github.com/lucrussell/notes/blob/master/_posts/2012-03-14-grep-quick-reference.md), [pdf](https://github.com/lucrussell/notes/blob/master/_posts/2012-03-14-grep-quick-reference.pdf)
