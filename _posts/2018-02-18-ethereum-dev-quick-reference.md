@@ -202,6 +202,6 @@ Without this, you may see an error like `method personal_listAccounts does not e
 
     geth --mine --minerthreads 1 --dev --datadir "~/.ethereum-dev" --unlock 0 --rpc --rpcport "8545"  --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --rpccorsdomain "http://remix.ethereum.org" console 2>> ~/.ethereum-dev.log
 
-- Go to http://remix.ethereum.org
+- Go to [http://remix.ethereum.org](http://remix.ethereum.org)
 - On the 'Run' tab in top right, change the Environment to Web3 Provider
 - Enter 'http://localhost:8545' as the Web3 Provider Endpoint
