@@ -13,7 +13,6 @@ tags:
 categories:
   - kafka
 ---
-# Kafkacat Quick Reference
 
 [kafkacat](https://github.com/edenhill/kafkacat) is a useful tool for working with Kafka brokers. It's quick and very simple to use. This is a cheatsheet of some useful commands.
 

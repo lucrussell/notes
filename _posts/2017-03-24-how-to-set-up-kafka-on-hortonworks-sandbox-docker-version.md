@@ -15,7 +15,6 @@ tags:
 categories:
   - kafka
 ---
-## How to Set Up Kafka in Hortonworks Sandbox (Docker version)
 Assumes a container was previously set up following [these instructions](https://community.hortonworks.com/articles/58458/installing-docker-version-of-sandbox-on-mac.html) and you now want to enable the Kafka service.
 
 
