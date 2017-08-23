@@ -11,164 +11,165 @@ published: true
 tags:
   - docker
 category:
-  - 'a:1:{i:0;s:15:"quick reference";}'
+  - quick reference
 categories:
   - quick reference
 tags_input:
-  - 'a:1:{i:0;s:86:"a:4:{i:0;s:21:"wpghs_pre_import_args";i:1;s:4:"tags";i:2;s:5:"hello";i:3;s:5:"world";}";}'
+  - 'a:4:{i:0;s:21:"wpghs_pre_import_args";i:1;s:4:"tags";i:2;s:5:"hello";i:3;s:5:"world";}'
 ---
-<h1>Table of Contents</h1>
 
-<ul>
-<li><a href="#docker-compose-force-rebuild">Docker Compose Force Rebuild</a></li>
-<li><a href="#working-with-docker-for-mac">Working With Docker for Mac</a> 
+# Table of Contents
+*   [Docker Compose Force Rebuild][1]
+*   [Working With Docker for Mac][2] 
+    *   [Aliasing 0.0.0.0 to work around dynamic IPs][3]
+    *   [Accessing The Xyve Virtual Machine][4]
+    *   [Add an Internal Company Registry or Repo][5]
+*   [Get Into a Docker Container without docker-enter][6]
+*   [Get Into a Docker Image which Fails to Start][7]
+*   [Free up Disk Space Used by Docker][8]
+*   [Temporarily Install a Package for Troubleshooting][9]
+*   [Run A Container With Env Variables for Testing][10]
+*   [Remove Containers Created and Exited 2 Weeks ago][11]
+*   [Remove All Exited Containers][12]
+*   [Grep Docker stdout and stderr][13]
+*   [Keep a Container Running][14]
+*   [Run A Container With a Link to Another][15]
+*   [Logs][16]
+*   [Other References][17]
 
-<ul>
-<li><a href="#aliasing-0000-to-work-around-dynamic-ips">Aliasing 0.0.0.0 to work around dynamic IPs</a></li>
-<li><a href="#accessing-the-xyve-virtual-machine">Accessing The Xyve Virtual Machine</a></li>
-<li><a href="#add-an-internal-company-registry-or-repo">Add an Internal Company Registry or Repo</a></li>
-</ul></li>
-<li><a href="#get-into-a-docker-container-without-docker-enter">Get Into a Docker Container without docker-enter</a></li>
-<li><a href="#get-into-a-docker-image-which-fails-to-start">Get Into a Docker Image which Fails to Start</a></li>
-<li><a href="#free-up-disk-space-used-by-docker">Free up Disk Space Used by Docker</a></li>
-<li><a href="#temporarily-install-a-package-for-troubleshooting">Temporarily Install a Package for Troubleshooting</a></li>
-<li><a href="#run-a-container-with-env-variables-for-testing">Run A Container With Env Variables for Testing</a></li>
-<li><a href="#remove-containers-created-and-exited-2-weeks-ago">Remove Containers Created and Exited 2 Weeks ago</a></li>
-<li><a href="#remove-all-exited-containers">Remove All Exited Containers</a></li>
-<li><a href="#grep-docker-stdout-and-stderr">Grep Docker stdout and stderr</a></li>
-<li><a href="#keep-a-container-running">Keep a Container Running</a></li>
-<li><a href="#run-a-container-with-a-link-to-another">Run A Container With a Link to Another</a></li>
-<li><a href="#logs">Logs</a></li>
-<li><a href="#other-references">Other References</a></li>
-</ul>
+## Docker Compose Force Rebuild
+Also see [here][18].
 
-<h2>Docker Compose Force Rebuild</h2>
+    docker-compose rm -v -f
+    docker-compose build --no-cache
+    docker-compose up --force-recreate
 
-Also see <a href="http://stackoverflow.com/questions/32612650/how-to-get-docker-compose-to-always-start-fresh-images">here</a>.
+For compose files where you have trouble removing referenced images, try:
 
-<pre><code>docker-compose rm -v -f
-docker-compose build --no-cache
-docker-compose up --force-recreate
-</code></pre>
+    docker-compose down --rmi all
 
-<h2>Working With Docker for Mac</h2>
+See [Docker Compose reference](https://docs.docker.com/compose/reference/down/).
 
-<h3>Aliasing 0.0.0.0 to work around dynamic IPs</h3>
+## Working With Docker for Mac
 
-To solve this problem:
+### Aliasing 0.0.0.0 to work around dynamic IPs
 
-<blockquote>
-  I want to connect from a container to a service on the host. The 
-  mac has a changing IP address or no address if you have no network access
-</blockquote>
+To solve this problem: 
+    > I want to connect from a container to a service on the host. The 
+    > mac has a changing IP address or no address if you have no network access 
 
-The current recommendation is to attach an unused IP to the lo0 interface on the Mac e.g.
-
-<pre><code>sudo ifconfig lo0 alias 10.200.10.1/24
-</code></pre>
+The current recommendation is to attach an unused IP to the lo0 interface on the Mac e.g. 
+    
+    sudo ifconfig lo0 alias 10.200.10.1/24
 
 Make sure your service is listening on this address or 0.0.0.0 
 (i.e. not 127.0.0.1). Then any containers which need to access the 
-service can use the <code>10.200.10.1</code> address.
+service can use the `10.200.10.1` address.
 
-<h3>Accessing The Xyve Virtual Machine</h3>
 
-You might need to do this after restarting/upgrading docker. To get into the xyve vm use <code>screen</code>:
 
-<pre><code>screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty 
-</code></pre>
+### Accessing The Xyve Virtual Machine
 
+You might need to do this after restarting/upgrading docker. To get into the xyve vm use `screen`:
+
+    screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty 
+    
 The login is 'root', no password.
 
-<h3>Add an Internal Company Registry or Repo</h3>
+### Add an Internal Company Registry or Repo
 
-<pre><code>vi /etc/hosts 
-</code></pre>
+    vi /etc/hosts 
 
 and add the address e.g.:
 
-<pre><code>10.10.10.100   my-registry.mycompany.com
-</code></pre>
+    10.10.10.100   my-registry.mycompany.com
 
-Exit screen with <code>Ctrl-a</code> then <code>k</code>.
+Exit screen with `Ctrl-a` then `k`.
 
-Here is a <code>screen</code> reference: http://ss64.com/osx/screen.html.
+Here is a `screen` reference: http://ss64.com/osx/screen.html.
 
-<h2>Get Into a Docker Container without docker-enter</h2>
+## Get Into a Docker Container without docker-enter
 
-<pre><code>docker exec -it 963ffd75c1b5 /bin/bash
-</code></pre>
+    docker exec -it 963ffd75c1b5 /bin/bash
 
-<h2>Get Into a Docker Image which Fails to Start</h2>
+## Get Into a Docker Image which Fails to Start
 
-<pre><code>docker run -it applications_mycontainer /bin/bash 
-</code></pre>
+    docker run -it applications_mycontainer /bin/bash 
 
-Use <code>docker images</code> to find the correct image name
+Use `docker images` to find the correct image name
 
-<h2>Free up Disk Space Used by Docker</h2>
+## Free up Disk Space Used by Docker
 
-See <a href="http://blog.yohanliyanage.com/2015/05/docker-clean-up-after-yourself/">this reference</a>.
+See [this reference](http://blog.yohanliyanage.com/2015/05/docker-clean-up-after-yourself/).
 
-<h2>Temporarily Install a Package for Troubleshooting</h2>
+For issues related to the size of the Docker.qcow2 file, see [this link](https://github.com/docker/for-mac/issues/371).
+
+
+## Temporarily Install a Package for Troubleshooting
 
 If you need to, you can probably simply install packages in any transient container, e.g.:
 
-<pre><code>apt-get update
-apt-get install netcat
-nc -v -w3 10.10.10.100 5432
-</code></pre>
+    apt-get update
+    apt-get install netcat
+    nc -v -w3 10.10.10.100 5432
 
-<h2>Run A Container With Env Variables for Testing</h2>
+## Run A Container With Env Variables for Testing
 
-<pre><code>docker run -it -e  MY_ENV_VAR=somevalue myrepo/myapp:latest /bin/bash
-</code></pre>
+    docker run -it -e  MY_ENV_VAR=somevalue myrepo/myapp:latest /bin/bash
 
-<h2>Remove Containers Created and Exited 2 Weeks ago</h2>
+## Remove Containers Created and Exited 2 Weeks ago
 
-<pre><code>docker ps -a | grep "2 weeks" | grep "Exited" | awk '{print $1}' | sudo xargs docker rm
-</code></pre>
+    docker ps -a | grep "2 weeks" | grep "Exited" | awk '{print $1}' | sudo xargs docker rm
 
-<h2>Remove All Exited Containers</h2>
+## Remove All Exited Containers
 
-<pre><code>docker ps -a | grep Exit | awk '{print $1}' |  xargs docker rm
-</code></pre>
+    docker ps -a | grep Exit | awk '{print $1}' |  xargs docker rm
 
-<h2>Grep Docker stdout and stderr</h2>
-
+## Grep Docker stdout and stderr
 E.g. if you have an application that's writing to both streams and you're not sure where logs are going:
 
-<pre><code>docker logs 4017b8a68f98 2&gt;&amp;1 | grep
-</code></pre>
+    docker logs 4017b8a68f98 2>&1 | grep
 
-<h2>Keep a Container Running</h2>
-
+## Keep a Container Running
 E.g. if it starts and immediately exits:
 
-<pre><code>sudo docker run -t -i my-registry/mycontainer /bin/bash
-</code></pre>
+    sudo docker run -t -i my-registry/mycontainer /bin/bash
 
 This will attach you directly to the container so you can check the logs.
 
-<pre><code>sudo docker run -d my-registry/my-container /bin/bash
-</code></pre>
+    sudo docker run -d my-registry/my-container /bin/bash
 
 This will start it detached.
 
-<h2>Run A Container With a Link to Another</h2>
+## Run A Container With a Link to Another
 
-<pre><code>docker run --rm -t -i --name mycontainer --link docker_consul_1 my-registry/mycontainer
-</code></pre>
+    docker run --rm -t -i --name mycontainer --link docker_consul_1 my-registry/mycontainer
 
-<h2>Logs</h2>
-
+## Logs
 Get the last 20 lines of logs:
 
-<pre><code>docker logs --tail 20 fc805ce579d3
-</code></pre>
+    docker logs --tail 20 fc805ce579d3
 
-<h2>Other References</h2>
-
-<a href="https://github.com/wsargent/docker-cheat-sheet">Cheat sheet</a>.
+## Other References
+[Cheat sheet](https://github.com/wsargent/docker-cheat-sheet).
 
 [wpghs target='view' type='link' text='View and edit this post on GitHub']
+
+ [1]: #docker-compose-force-rebuild
+ [2]: #working-with-docker-for-mac
+ [3]: #aliasing-0000-to-work-around-dynamic-ips
+ [4]: #accessing-the-xyve-virtual-machine
+ [5]: #add-an-internal-company-registry-or-repo
+ [6]: #get-into-a-docker-container-without-docker-enter
+ [7]: #get-into-a-docker-image-which-fails-to-start
+ [8]: #free-up-disk-space-used-by-docker
+ [9]: #temporarily-install-a-package-for-troubleshooting
+ [10]: #run-a-container-with-env-variables-for-testing
+ [11]: #remove-containers-created-and-exited-2-weeks-ago
+ [12]: #remove-all-exited-containers
+ [13]: #grep-docker-stdout-and-stderr
+ [14]: #keep-a-container-running
+ [15]: #run-a-container-with-a-link-to-another
+ [16]: #logs
+ [17]: #other-references
+ [18]: http://stackoverflow.com/questions/32612650/how-to-get-docker-compose-to-always-start-fresh-images

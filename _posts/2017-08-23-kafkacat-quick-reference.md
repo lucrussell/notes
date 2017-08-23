@@ -38,6 +38,6 @@ Given a file containing a `DATE` variable, generate a set of messages with incre
     for i in {1..5000}; do DATE=`date -u +%d/%b/%Y:%H:%M:%S`; sed "s~DATE~$DATE~" template.msg >> myfile; done
     
 ## Read the Last n Messages from Partition n
-This example uses the `-o` flag to read from a specified offset. Specifying `-3` allows retrieval of the last 3 messages. The `-p` option targets partition 0:
+This example uses the `-o` flag to read from a specified offset. Specifying `-3` allows retrieval of the last 3 messages. The `-p` option targets partition `0`:
 
     kafkacat -C -b kafka -t mytopic -o -3 -e -p 0
