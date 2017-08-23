@@ -13,32 +13,40 @@ tags:
 categories:
   - kafka
 ---
-# Kafkacat Quick Reference
+<h1>Kafkacat Quick Reference</h1>
 
-[kafkacat](https://github.com/edenhill/kafkacat) is a useful tool for working with Kafka brokers. It's quick and very simple to use. This is a cheatsheet of some useful commands.
+<a href="https://github.com/edenhill/kafkacat">kafkacat</a> is a useful tool for working with Kafka brokers. It's quick and very simple to use. This is a cheatsheet of some useful commands.
 
-## Produce
+<h2>Produce</h2>
 
-    $ echo "foo" | kafkacat -b localhost:9092 -t mytopic
+<pre><code>$ echo "foo" | kafkacat -b localhost:9092 -t mytopic
+</code></pre>
 
-## Consume
+<h2>Consume</h2>
 
-    kafkacat -C -b localhost:9092  -t mytopic
+<pre><code>kafkacat -C -b localhost:9092  -t mytopic
+</code></pre>
 
-## List Topics
+<h2>List Topics</h2>
 
-    kafkacat  -b localhost:9092 -L -t mytopic
+<pre><code>kafkacat  -b localhost:9092 -L -t mytopic
+</code></pre>
 
-## Read messages from a file, each message separated by a newline
+<h2>Read messages from a file, each message separated by a newline</h2>
 
-    kafkacat -P -l -b kafka:9092 -t mytopic myfile
+<pre><code>kafkacat -P -l -b kafka:9092 -t mytopic myfile
+</code></pre>
 
-## Generate a Test File of Messages
-Given a file containing a `DATE` variable, generate a set of messages with incrementing timestamp, for use with the previous example:
+<h2>Generate a Test File of Messages</h2>
 
-    for i in {1..5000}; do DATE=`date -u +%d/%b/%Y:%H:%M:%S`; sed "s~DATE~$DATE~" template.msg >> myfile; done
-    
-## Read the Last n Messages from Partition n
-This example uses the `-o` flag to read from a specified offset. Specifying `-3` allows retrieval of the last 3 messages. The `-p` option targets partition 0:
+Given a file containing a <code>DATE</code> variable, generate a set of messages with incrementing timestamp, for use with the previous example:
 
-    kafkacat -C -b kafka -t mytopic -o -3 -e -p 0
+<pre><code>for i in {1..5000}; do DATE=`date -u +%d/%b/%Y:%H:%M:%S`; sed "s~DATE~$DATE~" template.msg &gt;&gt; myfile; done
+</code></pre>
+
+<h2>Read the Last n Messages from Partition n</h2>
+
+This example uses the <code>-o</code> flag to read from a specified offset. Specifying <code>-3</code> allows retrieval of the last 3 messages. The <code>-p</code> option targets partition 0:
+
+<pre><code>kafkacat -C -b kafka -t mytopic -o -3 -e -p 0
+</code></pre>
