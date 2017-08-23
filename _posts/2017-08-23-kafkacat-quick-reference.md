@@ -1,7 +1,13 @@
 ---
+ID: 680
 post_title: Kafkacat Quick Reference
+author: Luc
+post_excerpt: ""
 layout: post
+permalink: >
+  http://lucrussell.com/kafkacat-quick-reference/
 published: true
+post_date: 2017-08-23 15:42:59
 tags:
   - kafka
 categories:
