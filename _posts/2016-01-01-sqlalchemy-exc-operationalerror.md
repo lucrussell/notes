@@ -13,13 +13,12 @@ tags:
 categories:
   - errors and problems
 ---
-<strong>Symptom</strong>
+**Symptom**
 
 I encountered this error while trying to run commands on Postgres running in a Docker container:
 
-<pre><code>sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  could not write init file
-</code></pre>
+    sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  could not write init file
 
-<strong>Solution</strong>
+**Solution**
 
-Ensure Docker has enough disk space, see <a href="http://lucrussell.com/docker-quick-reference">Docker Quick Reference</a>.
+Ensure Docker has enough disk space, see [Docker Quick Reference](http://lucrussell.com/docker-quick-reference).
