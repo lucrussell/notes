@@ -4,7 +4,7 @@ post_title: ""
 author: Luc
 post_excerpt: ""
 layout: post
-permalink: http://lucrussell.com/674-2/
+permalink: http://lucrussell.com/kafkacat-quick-reference/
 published: true
 post_date: 2017-08-23 14:22:23
 tags:
