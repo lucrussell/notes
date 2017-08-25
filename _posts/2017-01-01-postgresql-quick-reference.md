@@ -1,6 +1,11 @@
 ---
+ID: 696
 post_title: PostgreSQL Quick Reference
+author: Luc
+post_excerpt: ""
 layout: post
+permalink: >
+  http://lucrussell.com/postgresql-quick-reference/
 published: true
 post_date: 2017-01-01 19:40:44
 tags:
@@ -15,15 +20,15 @@ categories:
 ## List Databases
 From within a psql session:
 
-    \l
+    l
 
 ## List Tables
 
-    \dt
+    dt
 
 ## Connect To DB
 
-    \c myuser
+    c myuser
 
 ## Execute SQL in a File
 
@@ -36,9 +41,9 @@ From within a psql session:
 ## Output to File
 Example shows opening a file, listing tables to the file, and finally closing the file:
 
-    db=>\o out.txt
-    db=>\dt
-    db=>\q
+    db=>o out.txt
+    db=>dt
+    db=>q
 
 ## Get PostgreSQL Logs
     
@@ -89,6 +94,4 @@ Check the [generate_series](https://www.postgresql.org/docs/9.1/static/functions
     to_timestamp('2015-04-30 23:59:59', 'YYYY-MM-DD HH24:MI:SS')
 
 ## Partitioning
-Refer to [this example](https://blog.engineyard.com/2013/scaling-postgresql-performance-table-partitioning) for how to partition tables for performance. 
-
-
+Refer to [this example](https://blog.engineyard.com/2013/scaling-postgresql-performance-table-partitioning) for how to partition tables for performance.
