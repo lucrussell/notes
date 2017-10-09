@@ -66,7 +66,7 @@ Go to the geth console and try a few commands:
     Passphrase:
     true
 
-The first account is referred to as the coinbase and can be referred to with `eth.coinbase`. This address will earn the mining rewards:
+The first account is referred to as the coinbase and can be accessed with `eth.coinbase`. This address will earn the mining rewards:
 
     > web3.fromWei(eth.getBalance(eth.coinbase))
     1.15792
@@ -180,3 +180,12 @@ Without this, you may see an error like `method personal_listAccounts does not e
     print(web3.eth.coinbase)
     print(web3.personal.listAccounts)
 
+
+
+## Start Geth in Dev Mode and Connect with Remix
+
+    geth --mine --minerthreads 1 --dev --datadir "~/.ethereum-dev" --unlock 0 --rpc --rpcport "8545"  --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --rpccorsdomain "http://remix.ethereum.org" console 2>> ~/.ethereum-dev.log
+
+- Go to http://remix.ethereum.org
+- On the 'Run' tab in top right, change the Environment to Web3 Provider
+- Enter 'http://localhost:8545' as the Web3 Provider Endpoint
