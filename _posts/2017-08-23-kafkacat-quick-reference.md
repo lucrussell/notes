@@ -13,6 +13,16 @@ tags:
 categories:
   - kafka
 ---
+[TOC levels=1-3]: # "Contents"
+
+# Contents
+- [Produce](#produce)
+- [Consume](#consume)
+- [List Topics](#list-topics)
+- [Read Messages From File](#read-messages-from-file)
+- [Generate a Test File of Messages](#generate-a-test-file-of-messages)
+- [Read the Last n Messages from Partition n](#read-the-last-n-messages-from-partition-n)
+
 
 [kafkacat](https://github.com/edenhill/kafkacat) is a useful tool for working with Kafka brokers. It's quick and very simple to use. This is a cheatsheet of some useful commands.
 
@@ -28,7 +38,8 @@ categories:
 
     kafkacat  -b localhost:9092 -L -t mytopic
 
-## Read messages from a file, each message separated by a newline
+## Read Messages From File
+Read messages from a file, with each message separated by a newline:
 
     kafkacat -P -l -b kafka:9092 -t mytopic myfile
 
