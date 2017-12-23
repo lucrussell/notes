@@ -15,7 +15,7 @@ published: true
 ## Problem
 The error message was:
 
-    Could not initialize class `net.sf.cglib.proxy.Enhancer`
+    Could not initialize class net.sf.cglib.proxy.Enhancer
 
 The nested exception leading up to this was:
 
