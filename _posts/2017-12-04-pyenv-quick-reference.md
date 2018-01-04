@@ -8,6 +8,10 @@ permalink: >
   http://lucrussell.com/pyenv-quick-reference/
 published: true
 post_date: 2017-12-04 12:49:09
+tags:
+  - python
+categories:
+  - python
 ---
 [Pyenv](https://github.com/pyenv/pyenv) is a tool for easily switching between multiple versions of Python. One way to use the tool is in conjunction with the `pyenv-virtualenv` and `pyenv-virtualenvwrapper` plugins.
 
