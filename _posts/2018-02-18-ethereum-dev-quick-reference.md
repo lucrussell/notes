@@ -36,17 +36,29 @@ Install and set up a local dev account like this (Ubuntu):
     >
 
 ## Get Some Test Ether
-Start geth with the `--mine` option:
+The `--mine` option produces test ether:
 
-    geth --testnet --datadir "~/.ethereum-testnet" --mine console 2>> ~/.ethereum-testnet.log
+    geth --dev --rpc --datadir "~/.ethereum-dev" --mine --minerthreads 1 console 2>> ~/.ethereum-dev.log
 
 In another session, check logs for mining activity:
 
-    tail -f ~/.ethereum-testnet.log | grep -i 'mined'
+    tail -f ~/.ethereum-dev.log
+
+In dev mode, the node only mines if there are transactions. So to see activity here, send a transaction as below. Logging should then show:
+
+    INFO [02-18|14:43:14] Submitted transaction                    fullhash=0x7b847e1811f6369b67e747f1896ae8638fc61d228d57a7d5e3bf02bcd88ab3d4 recipient=0x293101d657761cADF9C353AD8F1d09A5820eD677
+    INFO [02-18|14:43:14] Commit new mining work                   number=1 txs=1 uncles=0 elapsed=1.067ms
+    INFO [02-18|14:43:14] Successfully sealed new block            number=1 hash=dbae4b…5cf9a8
+    INFO [02-18|14:43:14] 🔨 mined potential block                  number=1 hash=dbae4b…5cf9a8
+    INFO [02-18|14:43:14] Commit new mining work                   number=2 txs=0 uncles=0 elapsed=1.237ms
 
 ## Check How Many Accounts You Have
 Go to the geth console and try a few commands:
 
+     > personal.newAccount()
+    Passphrase:
+    Repeat passphrase:
+    "0x293101d657761cadf9c353ad8f1d09a5820ed677"
     > personal.listAccounts
     ["0x926cdd37c279f38e941bde52003f865859aabb76"]
     > personal.unlockAccount(eth.coinbase)
@@ -54,16 +66,17 @@ Go to the geth console and try a few commands:
     Passphrase:
     true
 
-The first one in the list is referred to as the coinbase and can be referred to with `eth.coinbase`. This will earn the ether mining rewards.
+The first account is referred to as the coinbase and can be referred to with `eth.coinbase`. This address will earn the mining rewards:
+
+    > web3.fromWei(eth.getBalance(eth.coinbase))
+    1.15792
 
 ## Check Balances and Transfer Between Accounts
-
 This shows the commands for sending between two accounts and checking balances. Note you first need to unlock the account:
 
-
-    > var from = eth.accounts[0];
+    > var from = eth.accounts[0]
     undefined
-    > var to   = eth.accounts[1];
+    > var to   = eth.accounts[1]
     undefined
     > personal.unlockAccount(from)
     Unlock account 0x926cdd37c279f38e941bde52003f865859aabb76
@@ -72,7 +85,7 @@ This shows the commands for sending between two accounts and checking balances. 
     > eth.sendTransaction({from:from, to:to, value: web3.toWei(1, "ether")})
     "0x4c169af406aed32d5b072c2ee2ac246a22b650c68aa29b1b7ff0dfd2b7f56813"
     > web3.fromWei(eth.getBalance(from))
-    1772
+    1.15792
     > web3.fromWei(eth.getBalance(to))
     1
 
@@ -95,45 +108,60 @@ There are several options for creating a contract on your local machine. One is 
 Further instructions [here](http://solidity.readthedocs.io/en/develop/installing-solidity.html):
 
 ### Create A Contract
-These instructions are summarized from [this answer](https://ethereum.stackexchange.com/a/15436/8317).
+These instructions are summarized from [here](https://ethereum.stackexchange.com/a/15436/8317) and [here](https://ethereum.stackexchange.com/a/3520/8317).
 
 Create a new file, e.g. Test.sol:
 
-    pragma solidity ^0.4.8;
+    contract Test {  function double(int a) constant returns(int) { return 2*a; } }
 
-    contract Test {
-        uint256 public value;
+Use a tool like this [Line Break Removal Tool](https://www.textfixer.com/tools/remove-line-breaks.php) to remove newlines.
 
-        function Test() {
-            value = 123;
-        }
-    }
+Compile with (in a terminal session, not geth console):
 
-Compile with:
-
-    echo "var testOutput=`solc --optimize --combined-json abi,bin,interface Test.sol`" > test.js
+    $ echo "var testOutput=`solc --optimize --combined-json abi,bin,interface Test.sol`" > test.js
 
 Check what's in test.js:
 
     $ cat test.js
-    var testOutput={"contracts":{"Test.sol:Test":{"abi":"[{"constant":true,"inputs":[],"name":"value","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"}]","bin":"60606040523415600b57fe5b5b607b6000819055505b5b608f806100246000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633fa4f24514603a575bfe5b3415604157fe5b6047605d565b6040518082815260200191505060405180910390f35b600054815600a165627a7a72305820d0e71d151634ac6ae7626860a17881104022e5cd6d3a088eb8f941d9aa8e3bd20029"}},"version":"0.4.9+commit.364da425.Darwin.appleclang"}
+    var testOutput={"contracts":{"Test.sol:test":{"abi":"[{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"}],\"name\":\"multiply\",\"outputs\":[{\"name\":\"d\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]","bin":"60606040523415600e57600080fd5b609a8061001c6000396000f300606060405260043610603e5763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663c6888fa181146043575b600080fd5b3415604d57600080fd5b60566004356068565b60405190815260200160405180910390f35b600702905600a165627a7a72305820b9bacfe234b71a880cdb653740e531bdd55f588943fb54de22a2b4ce0a3c08ea0029"}},"version":"0.4.19+commit.c4cbbb05.Linux.g++"}
 
 Load the file in the geth console:
 
     > loadScript("test.js");
     true
 
-Check the contract was loaded successfully by printing content of `testOutput`, which is part of the original test.js:
+Check the content of `testOutput`:
 
     > testOutput
-{
-  contracts: {
-    Test.sol:Test: {
-      abi: "[{\"constant\":true,\"inputs\":[],\"name\":\"value\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]",
-      bin: "60606040523415600e57600080fd5b607b6000556097806100216000396000f300606060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633fa4f24581146043575b600080fd5b3415604d57600080fd5b60536065565b60405190815260200160405180910390f35b600054815600a165627a7a723058202f93ec48a1ccfa576ade88c20cabe03f331b44581df974fd98057a27607a30df0029"
+    {
+      contracts: {
+        Test.sol:Test: {
+          abi: "[{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"int256\"}],\"name\":\"double\",\"outputs\":[{\"name\":\"\",\"type\":\"int256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]",
+          bin: "60606040523415600e57600080fd5b609a8061001c6000396000f300606060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636ffa1caa81146043575b600080fd5b3415604d57600080fd5b60566004356068565b60405190815260200160405180910390f35b600202905600a165627a7a72305820ad7e119166a4fd50657c9ebf64b81136cd76e83e22460b6c24dfa0c0a4e5e8ee0029"
+        }
+      },
+      version: "0.4.19+commit.c4cbbb05.Linux.g++"
     }
-  },
-  version: "0.4.19+commit.c4cbbb05.Linux.g++"
-}
 
+Create a contract with the content of `testOutput`:
+
+    > var testContract = web3.eth.contract(JSON.parse(testOutput.contracts["Test.sol:Test"].abi));
+    undefined
+    > var test = testContract.new({ from: eth.accounts[0], data: "0x" +     testOutput.contracts["Test.sol:Test"].bin, gas: 4700000},
+   function (e, contract) {
+     console.log(e, contract);
+     if (typeof contract.address !== 'undefined') {
+          console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+         }
+       }
+   );
+   > null [object Object]
+   Contract mined! address: 0xabae73839a51b8dc54466a9f5fa9f600f0067108 transactionHash: 0x211bc0086424d5f3f646b17f18393ac806ee96523f5be1b8d3ebf4d957562652
+
+Save the address if you want to later be able to run this contract from outside your geth session.
+
+You should now be able to call the `double` function from within the geth session:
+
+    > test.double(5)
+    10
 
