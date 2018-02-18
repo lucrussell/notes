@@ -1,14 +1,14 @@
 ---
+ID: 724
 post_title: Ethereum Dev Quick Reference
+author: Luc
+post_excerpt: ""
 layout: post
+permalink: >
+  http://lucrussell.com/ethereum-dev-quick-reference/
 published: true
-tags:
-  - ethereum
-categories:
-  - ethereum
-
+post_date: 2018-02-18 12:48:56
 ---
-
 ## Set Up Local Testnet Account for Development
 Install and set up a local testnet account like this (Ubuntu):
 
@@ -105,7 +105,7 @@ Compile with:
 Check what's in test.js:
 
     $ cat test.js
-    var testOutput={"contracts":{"Test.sol:Test":{"abi":"[{\"constant\":true,\"inputs\":[],\"name\":\"value\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"type\":\"constructor\"}]","bin":"60606040523415600b57fe5b5b607b6000819055505b5b608f806100246000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633fa4f24514603a575bfe5b3415604157fe5b6047605d565b6040518082815260200191505060405180910390f35b600054815600a165627a7a72305820d0e71d151634ac6ae7626860a17881104022e5cd6d3a088eb8f941d9aa8e3bd20029"}},"version":"0.4.9+commit.364da425.Darwin.appleclang"}
+    var testOutput={"contracts":{"Test.sol:Test":{"abi":"[{"constant":true,"inputs":[],"name":"value","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"}]","bin":"60606040523415600b57fe5b5b607b6000819055505b5b608f806100246000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633fa4f24514603a575bfe5b3415604157fe5b6047605d565b6040518082815260200191505060405180910390f35b600054815600a165627a7a72305820d0e71d151634ac6ae7626860a17881104022e5cd6d3a088eb8f941d9aa8e3bd20029"}},"version":"0.4.9+commit.364da425.Darwin.appleclang"}
 
 Load the file in the geth console:
 
