@@ -6,6 +6,7 @@ tags:
   - ethereum
 categories:
   - ethereum
+
 ---
 
 ## Set Up Local Testnet Account for Development
@@ -45,6 +46,7 @@ Go to the geth console and try a few commands:
 The first one in the list is referred to as the coinbase and can be referred to with `eth.coinbase`. This will earn the ether mining rewards.
 
 ## Check Balances and Transfer Between Accounts
+
 This shows the commands for sending between two accounts and checking balances. Note you first need to unlock the account:
 
 
