@@ -50,6 +50,20 @@ For compose files where you have trouble removing referenced images, try:
 
 See [Docker Compose reference](https://docs.docker.com/compose/reference/down/).
 
+## Remove a Volume
+
+    docker volume ls
+    docker volume rm -f some_grafana_data
+
+You might then see:
+
+    Error response from daemon: unable to remove volume: remove some_grafana_data: volume is in use - [4633083c16d8cab09af2163a2e76105ce1a7e2a5e2d23289f7b67125c607c9a6]
+
+In which case:
+
+    docker rm -f 4633083c16d8cab09af2163
+    docker volume rm -f some_grafana_data
+
 ## Working With Docker for Mac
 
 ### Aliasing 0.0.0.0 to work around dynamic IPs
@@ -116,6 +130,12 @@ If you need to, you can probably simply install packages in any transient contai
 ## Run A Container With Env Variables for Testing
 
     docker run -it -e  MY_ENV_VAR=somevalue myrepo/myapp:latest /bin/bash
+
+## Increase Terminal Width to View Truncated Lines
+
+E.g. if output of `ps` is truncated at 80 characters by default. This happens because `ps` is using the width from the $COLUMNS variable. Specify a large value for `$COLUMNS` when using `ps`, e.g.:
+
+    root@ff41cab9438f:/# COLUMNS=1000 ps -aux
 
 ## Remove Containers Created and Exited 2 Weeks ago
 
