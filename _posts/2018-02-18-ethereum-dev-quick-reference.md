@@ -7,6 +7,10 @@ layout: post
 permalink: >
   http://lucrussell.com/ethereum-dev-quick-reference/
 published: true
+tags:
+  - ethereum
+categories:
+  - ethereum
 post_date: 2018-02-18 12:48:56
 ---
 ## Set Up Local Testnet Account for Development
