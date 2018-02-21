@@ -165,3 +165,18 @@ You should now be able to call the `double` function from within the geth sessio
     > test.double(5)
     10
 
+## Use web3.py To Interact with Geth from Python
+Assuming geth is running on `localhost:8545`, use [web3.py](https://github.com/ethereum/web3.py) to get some basic information from outside the geth console.
+
+Note that in order to access some of the API methods, you need to specify an additional parameter to geth on startup:  `--rpcapi="db,eth,net,web3,personal,web3"`.
+
+Without this, you may see an error like `method personal_listAccounts does not exist/is not available`.
+
+    pip install web3
+
+    from web3 import Web3, HTTPProvider
+    web3 = Web3(HTTPProvider('http://localhost:8545'))
+    print(web3.eth.blockNumber)
+    print(web3.eth.coinbase)
+    print(web3.personal.listAccounts)
+
