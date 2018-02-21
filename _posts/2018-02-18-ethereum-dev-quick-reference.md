@@ -148,15 +148,15 @@ Create a contract with the content of `testOutput`:
     > var testContract = web3.eth.contract(JSON.parse(testOutput.contracts["Test.sol:Test"].abi));
     undefined
     > var test = testContract.new({ from: eth.accounts[0], data: "0x" +     testOutput.contracts["Test.sol:Test"].bin, gas: 4700000},
-   function (e, contract) {
+    function (e, contract) {
      console.log(e, contract);
      if (typeof contract.address !== 'undefined') {
           console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
          }
        }
-   );
-   > null [object Object]
-   Contract mined! address: 0xabae73839a51b8dc54466a9f5fa9f600f0067108 transactionHash: 0x211bc0086424d5f3f646b17f18393ac806ee96523f5be1b8d3ebf4d957562652
+    );
+    > null [object Object]
+    Contract mined! address: 0xabae73839a51b8dc54466a9f5fa9f600f0067108 transactionHash: 0x211bc0086424d5f3f646b17f18393ac806ee96523f5be1b8d3ebf4d957562652
 
 Save the address if you want to later be able to run this contract from outside your geth session.
 
