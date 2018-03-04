@@ -116,7 +116,7 @@ Create a new file, e.g. Test.sol:
 
 Use a tool like this [Line Break Removal Tool](https://www.textfixer.com/tools/remove-line-breaks.php) to remove newlines.
 
-Compile with (in a terminal session, not geth console):
+Compile (in a terminal session, not geth console):
 
     $ echo "var testOutput=`solc --optimize --combined-json abi,bin,interface Test.sol`" > test.js
 
