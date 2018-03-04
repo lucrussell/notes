@@ -2,7 +2,7 @@
 ID: 734
 post_title: Pyenv Quick Reference
 author: Luc
-post_excerpt: ""
+post_excerpt: "Quick reference for using Pyenv with pyenv-virtualenv and pyenv-virtualenvwrapper"
 layout: post
 permalink: >
   http://lucrussell.com/pyenv-quick-reference/
