@@ -12,34 +12,34 @@ permalink: >
 published: true
 ---
 ## Problem
-Oracle hangs on stored proc call or commit
+Error with Oracle hanging on a stored procedure call or commit statement.
 
 ## Solution
 Does someone have an uncommitted session? SQL Developer will sometimes cause this (maybe a user doesn't have autocommit on?).
 
     select
-	s.seconds_in_wait,
-	s.blocking_instance,
-	s.blocking_session,
-	s.event,
-	t.start_time,
-	s.sid,
-	s.serial#,
-	s.username,
-	s.status,
-	s.schemaname,
-	s.osuser,
-	s.process,
-	s.machine,
-	s.terminal,
-	s.program,
-	s.module,
-	to_char(s.logon_time,'DD/MON/YY HH24:MI:SS') logon_time
+    s.seconds_in_wait,
+    s.blocking_instance,
+    s.blocking_session,
+    s.event,
+    t.start_time,
+    s.sid,
+    s.serial#,
+    s.username,
+    s.status,
+    s.schemaname,
+    s.osuser,
+    s.process,
+    s.machine,
+    s.terminal,
+    s.program,
+    s.module,
+    to_char(s.logon_time,'DD/MON/YY HH24:MI:SS') logon_time
     from
-	v$transaction t,
-	gv$session s
+    v$transaction t,
+    gv$session s
     where
-	s.saddr = t.ses_addr
+    s.saddr = t.ses_addr
     order by start_time;
 
 Once you have a session id, use `Sql Developer Tools > Monitor Sessions` to see the problem SQL
