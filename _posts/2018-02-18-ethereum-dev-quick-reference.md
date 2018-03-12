@@ -13,8 +13,24 @@ categories:
   - ethereum
 post_date: 2018-02-18 12:48:56
 ---
-## Set Up Local Dev Account for Development
-Install and set up a local dev account like this (Ubuntu):
+
+[TOC]: # " "
+
+- [Set Up A Local Development Environment](#set-up-a-local-development-environment)
+    - [Configure Local Environment to Create Test Ether](#configure-local-environment-to-create-test-ether)
+    - [Check How Many Accounts You Have](#check-how-many-accounts-you-have)
+    - [Check Balances and Transfer Between Accounts](#check-balances-and-transfer-between-accounts)
+- [Install Solidity And Create a Simple Contract](#install-solidity-and-create-a-simple-contract)
+    - [Install](#install)
+    - [Create A Contract](#create-a-contract)
+- [Use web3.py To Interact with Geth from Python](#use-web3py-to-interact-with-geth-from-python)
+- [Connect to a Local Development Environment With Remix](#connect-to-a-local-development-environment-with-remix)
+
+
+
+
+## Set Up A Local Development Environment
+Install and set up a local development account like this (Ubuntu):
 
     sudo apt-get install software-properties-common
     sudo add-apt-repository -y ppa:ethereum/ethereum
@@ -35,7 +51,7 @@ Install and set up a local dev account like this (Ubuntu):
      modules: admin:1.0 clique:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 shh:1.0 txpool:1.0 web3:1.0
     >
 
-## Get Some Test Ether
+### Configure Local Environment to Create Test Ether
 The `--mine` option produces test ether:
 
     geth --dev --rpc --datadir "~/.ethereum-dev" --mine --minerthreads 1 console 2>> ~/.ethereum-dev.log
@@ -52,7 +68,7 @@ In dev mode, the node only mines if there are transactions. So to see activity h
     INFO [02-18|14:43:14] 🔨 mined potential block                  number=1 hash=dbae4b…5cf9a8
     INFO [02-18|14:43:14] Commit new mining work                   number=2 txs=0 uncles=0 elapsed=1.237ms
 
-## Check How Many Accounts You Have
+### Check How Many Accounts You Have
 Go to the geth console and try a few commands:
 
      > personal.newAccount()
@@ -71,7 +87,7 @@ The first account is referred to as the coinbase and can be accessed with `eth.c
     > web3.fromWei(eth.getBalance(eth.coinbase))
     1.15792
 
-## Check Balances and Transfer Between Accounts
+### Check Balances and Transfer Between Accounts
 This shows the commands for sending between two accounts and checking balances. Note you first need to unlock the account:
 
     > var from = eth.accounts[0]
@@ -182,7 +198,7 @@ Without this, you may see an error like `method personal_listAccounts does not e
 
 
 
-## Start Geth in Dev Mode and Connect with Remix
+## Connect to a Local Development Environment With Remix
 
     geth --mine --minerthreads 1 --dev --datadir "~/.ethereum-dev" --unlock 0 --rpc --rpcport "8545"  --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --rpccorsdomain "http://remix.ethereum.org" console 2>> ~/.ethereum-dev.log
 
