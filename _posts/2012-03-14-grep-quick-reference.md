@@ -7,11 +7,6 @@ layout: post
 permalink: >
   http://lucrussell.com/grep-quick-reference/
 published: true
-tags:
-  - linux
-  - intellij
-categories:
-  - quick reference
 post_date: 2012-03-14 00:45:16
 ---
 ## Grep Quick Reference
@@ -42,7 +37,7 @@ This example simplified command runner script will pass the `$SelectedText$` to 
 | Grep only in filenames with a particular extension | grep -ir --include=*.md 'word' |
 | Exclude files with a particular extension | grep -ir --exclude=*.md 'word' |
 | Recursive grep, searching for patterns in `patterns.txt` | find . -name *.md -exec grep -Hn -f patterns.txt {} ; |
-| Recursive grep for `word` in all `.md` files | find . -name *.md -exec grep -Hn 'word' {} \; |
+| Recursive grep for `word` in all `.md` files | find . -name *.md -exec grep -Hn 'word' {} ; |
 | Count total occurences of `word`, including cases when a line contains multiple occurences | grep -oir 'word' * &#124; wc -l |
 | Grep multiple strings with the `--perl-regexp` option | grep -r --perl-regexp 'hello&#124;goodbye' *|
 | Count total occurences of `word`, including cases when a line contains multiple occurences | grep -oir 'word' * &#124; wc -l |
