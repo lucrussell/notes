@@ -15,6 +15,18 @@ tags:
 categories:
   - quick reference
 ---
+[TOC]: # " "
+
+- [Create A Topic](#create-a-topic)
+- [Delete a Topic](#delete-a-topic)
+- [Add a Partition](#add-a-partition)
+- [Describe a Topic](#describe-a-topic)
+- [Reassign partitions](#reassign-partitions)
+- [Checking Lag](#checking-lag)
+- [How to Set Up librdkafka with Pykafka](#how-to-set-up-librdkafka-with-pykafka)
+- [Kafkacat](#kafkacat)
+
+
 ## Create A Topic
 
     ./kafka-topics.sh --create --zookeeper myzookeeper:2181 --replication-factor 3 --partitions 3 --topic mytopic
@@ -37,7 +49,7 @@ Note this describes all the topics, regardless of what topic is supplied.
     ./kafka-topics.sh --describe mytopic
     
 
-## Reassign partitions
+## Reassign Partitions
 
 Create a file `reassign.json`:
 
@@ -79,3 +91,7 @@ Then:
 The last part, calling `setup.py develop` to put pykafka in develop mode, is necessary for creating the link between the two.
 
  [1]: https://gist.github.com/yungchin/0b107fd9f4e532de2da5
+
+## Kafkacat
+[kafkacat](https://github.com/edenhill/kafkacat) is a useful tool, here is a [kafkacat quick reference](http://lucrussell.com/kafkacat-quick-reference/).
+
