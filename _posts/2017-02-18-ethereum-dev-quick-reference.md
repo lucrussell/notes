@@ -7,13 +7,8 @@ layout: post
 permalink: >
   http://lucrussell.com/ethereum-dev-quick-reference/
 published: true
-tags:
-  - ethereum
-categories:
-  - ethereum
-post_date: 2018-02-18 12:48:56
+post_date: 2017-02-18 12:48:56
 ---
-
 [TOC]: # " "
 
 - [Set Up A Local Development Environment](#set-up-a-local-development-environment)
@@ -139,7 +134,7 @@ Compile (in a terminal session, not geth console):
 Check what's in test.js:
 
     $ cat test.js
-    var testOutput={"contracts":{"Test.sol:test":{"abi":"[{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"}],\"name\":\"multiply\",\"outputs\":[{\"name\":\"d\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]","bin":"60606040523415600e57600080fd5b609a8061001c6000396000f300606060405260043610603e5763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663c6888fa181146043575b600080fd5b3415604d57600080fd5b60566004356068565b60405190815260200160405180910390f35b600702905600a165627a7a72305820b9bacfe234b71a880cdb653740e531bdd55f588943fb54de22a2b4ce0a3c08ea0029"}},"version":"0.4.19+commit.c4cbbb05.Linux.g++"}
+    var testOutput={"contracts":{"Test.sol:test":{"abi":"[{"constant":false,"inputs":[{"name":"a","type":"uint256"}],"name":"multiply","outputs":[{"name":"d","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"}]","bin":"60606040523415600e57600080fd5b609a8061001c6000396000f300606060405260043610603e5763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663c6888fa181146043575b600080fd5b3415604d57600080fd5b60566004356068565b60405190815260200160405180910390f35b600702905600a165627a7a72305820b9bacfe234b71a880cdb653740e531bdd55f588943fb54de22a2b4ce0a3c08ea0029"}},"version":"0.4.19+commit.c4cbbb05.Linux.g++"}
 
 Load the file in the geth console:
 
@@ -152,7 +147,7 @@ Check the content of `testOutput`:
     {
       contracts: {
         Test.sol:Test: {
-          abi: "[{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"int256\"}],\"name\":\"double\",\"outputs\":[{\"name\":\"\",\"type\":\"int256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]",
+          abi: "[{"constant":true,"inputs":[{"name":"a","type":"int256"}],"name":"double","outputs":[{"name":"","type":"int256"}],"payable":false,"stateMutability":"view","type":"function"}]",
           bin: "60606040523415600e57600080fd5b609a8061001c6000396000f300606060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636ffa1caa81146043575b600080fd5b3415604d57600080fd5b60566004356068565b60405190815260200160405180910390f35b600202905600a165627a7a72305820ad7e119166a4fd50657c9ebf64b81136cd76e83e22460b6c24dfa0c0a4e5e8ee0029"
         }
       },
