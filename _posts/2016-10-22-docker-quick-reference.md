@@ -115,7 +115,7 @@ Use `docker images` to find the correct image name
 
 ## Free up Disk Space Used by Docker
 
-See [this reference](http://blog.yohanliyanage.com/2015/05/docker-clean-up-after-yourself/).
+See [this reference](https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430).
 
 For issues related to the size of the Docker.qcow2 file, see [this link](https://github.com/docker/for-mac/issues/371).
 
