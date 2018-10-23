@@ -33,18 +33,23 @@ Detailed instructions are available [here](https://anil.io/blog/python/pyenv/usi
 
 ## Install Pyenv, pyenv-virtualenv and pyenv-virtualenvwrapper
 
-    curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+###  Pyenv Installer
+First use the [Pyenv Installer](https://github.com/pyenv/pyenv-installer). The 'Github Way' of installing is easiest.
 
-    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-
-    git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git $(pyenv root)/plugins/pyenv-virtualenvwrapper
-
-Edit your profile (e.g. `~/.bash_profile` or `~/.zshenv`) and add the following, adjusting paths as necessary:
+Edit your profile (i.e. `~/.bash_profile`, `~/.zshenv`, etc) and add the following, adjusting paths as necessary:
 
     # Use pyenv for Python version management
-    export PYENV_ROOT="$HOME/Dev/.pyenv"
+    export PYENV_ROOT="$HOME/Dev/.pyenv" <--Use your chosen location here
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
+
+
+Then install the following two plugins:
+- [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv_
+- [pyenv-virtualenvwrapper](https://github.com/pyenv/pyenv-virtualenvwrapper)
+
+Edit your profile again, adding the following:
+
     eval "$(pyenv virtualenv-init -)"
     export WORKON_HOME=$HOME/.virtualenvs
     export PROJECT_HOME=$HOME/Dev
