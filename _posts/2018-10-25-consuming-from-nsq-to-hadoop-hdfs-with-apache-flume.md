@@ -11,7 +11,7 @@ permalink: >
 published: true
 post_date: 2018-10-25 23:32:52
 ---
-I was working on a prototype for consuming from [NSQ](https://nsq.io/) to the Hadoop [HDFS](https://hortonworks.com/apache/hdfs/) file system with [Apache Flume](https://flume.apache.org/). I couldn't find much information, so I made a small [project](https://github.com/lucrussell/flume-nsq).
+I was working on a prototype for consuming from [nsq](https://nsq.io/) to the Hadoop [HDFS](https://hortonworks.com/apache/hdfs/) file system with [Apache Flume](https://flume.apache.org/). I couldn't find much information, so I made a small [project](https://github.com/lucrussell/flume-nsq).
 
 Below are a few extra notes about nsq and the project.
 
