@@ -48,7 +48,7 @@ Edit your profile (i.e. `~/.bash_profile`, `~/.zshenv`, etc) and add the followi
 
 
 Then install the following two plugins:
-- [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv_
+- [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
 - [pyenv-virtualenvwrapper](https://github.com/pyenv/pyenv-virtualenvwrapper)
 
 Edit your profile again, adding the following:
