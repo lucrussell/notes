@@ -1,16 +1,16 @@
 ---
-post_title: Consuming from NSQ to Hadoop HDFS with Apache Flume
+ID: 808
+post_title: >
+  Consuming from NSQ to Hadoop HDFS with
+  Apache Flume
+author: Luc
+post_excerpt: ""
 layout: post
+permalink: >
+  https://lucrussell.com/consuming-from-nsq-to-hadoop-hdfs-with-apache-flume/
 published: true
-tags:
-  - nsq
-  - hadoop
-  - hdfs
-  - flume
-categories:
-  - nsq
+post_date: 2018-10-25 23:32:52
 ---
-
 I was working on a prototype for consuming from [NSQ](https://nsq.io/) to the Hadoop [HDFS](https://hortonworks.com/apache/hdfs/) file system with [Apache Flume](https://flume.apache.org/). I couldn't find much information, so I made a small [project](https://github.com/lucrussell/flume-nsq).
 
 Below are a few extra notes about nsq and the project.
