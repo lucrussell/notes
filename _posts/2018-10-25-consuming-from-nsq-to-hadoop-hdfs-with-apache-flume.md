@@ -1,7 +1,7 @@
 ---
 ID: 808
 post_title: >
-  Consuming from NSQ to Hadoop HDFS with
+  Consuming from nsq to Hadoop HDFS with
   Apache Flume
 author: Luc
 post_excerpt: ""
