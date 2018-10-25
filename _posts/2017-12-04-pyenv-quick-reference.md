@@ -29,7 +29,9 @@ categories:
 
 [Pyenv](https://github.com/pyenv/pyenv) is a tool for easily switching between multiple versions of Python. One way to use the tool is in conjunction with the `pyenv-virtualenv` and `pyenv-virtualenvwrapper` plugins.
 
+
 Detailed instructions are available [here](https://anil.io/blog/python/pyenv/using-pyenv-to-install-multiple-python-versions-tox/) and [here](http://akbaribrahim.com/managing-multiple-python-versions-with-pyenv/). The following reference is a brief summary of some frequently used commands.
+
 
 
 ## Install Pyenv, pyenv-virtualenv and pyenv-virtualenvwrapper
