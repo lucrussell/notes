@@ -17,6 +17,7 @@ categories:
 
 # Contents
 - [Install Pyenv, pyenv-virtualenv and pyenv-virtualenvwrapper](#install-pyenv-pyenv-virtualenv-and-pyenv-virtualenvwrapper)
+    - [Pyenv Installer](#pyenv-installer)
 - [Usage](#usage)
     - [List Available Python Versions](#list-available-python-versions)
 - [Install a specific version](#install-a-specific-version)
